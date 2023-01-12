@@ -12,6 +12,7 @@ import {AddProductModalComponent} from "./add-product-modal/add-product-modal.co
   selector: 'app-admin',
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css'],
+  providers: [ProductService, UserService, OrderService]
 })
 export class AdminComponent implements OnInit{
   userOrders: Order[] = [];
