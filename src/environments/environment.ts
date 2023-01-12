@@ -1,6 +1,6 @@
 export const environment = {
-  production: false,
-  server: 'http://localhost:8080/api',
+  production: true,
+  server: 'https://iprwcbackend2023.herokuapp.com//api',
   endpoints: {
     products: "/products",
     user: "/users",
