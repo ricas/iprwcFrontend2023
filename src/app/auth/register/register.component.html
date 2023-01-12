@@ -1,0 +1,57 @@
+<div class="w-full min-h-screen bg-gray-50 flex flex-col sm:justify-center items-center pt-6 sm:pt-0">
+  <div class="w-full sm:max-w-md p-5 mx-auto">
+    <h2 class="mb-12 text-center text-5xl font-bold">Sign up</h2>
+    <form #f="ngForm" (ngSubmit)="submit(f)">
+
+      <div class="mb-4">
+
+        <div class="mb-4">
+          <label class="block mb-1" for="name">Name</label>
+          <input ngModel required #name=ngModel id="name" type="text" name="name"
+                 class="py-2 px-3 border border-gray-300 focus:border-red-300 focus:outline-none focus:ring focus:ring-red-200 focus:ring-opacity-50 rounded-md shadow-sm disabled:bg-gray-100 mt-1 block w-full"/>
+          <p class="text-red-500 text-xs italic" *ngIf="!name.valid && name.touched">Please enter your name.</p>
+
+        </div>
+
+        <div class="mb-4">
+          <label class="block mb-1" for="name">Email</label>
+          <input ngModel required #email=ngModel id="email" type="email" name="email"
+                 class="py-2 px-3 border border-gray-300 focus:border-red-300 focus:outline-none focus:ring focus:ring-red-200 focus:ring-opacity-50 rounded-md shadow-sm disabled:bg-gray-100 mt-1 block w-full"/>
+          <p class="text-red-500 text-xs italic" *ngIf="!email.valid && email.touched">Please enter your email address.</p>
+
+        </div>
+
+        <label class="block mb-1" for="username">Username</label>
+        <input ngModel required minlength="6" #username=ngModel id="username" type="text" name="username"
+               class="py-2 px-3 border border-gray-300 focus:border-red-300 focus:outline-none focus:ring focus:ring-red-200 focus:ring-opacity-50 rounded-md shadow-sm disabled:bg-gray-100 mt-1 block w-full"/>
+        <p class="text-red-500 text-xs italic" *ngIf="!username.valid && username.touched">Please enter a valid
+          username.</p>
+        <p class="text-red-500 text-xs italic" *ngIf="username.errors?.['minlength']">Username must be at least 6
+          characters long</p>
+
+      </div>
+
+      <div class="mb-4">
+        <label class="block mb-1" for="password">Password</label>
+        <input ngModel required minlength="8" #password=ngModel id="password" type="password" name="password"
+               class="py-2 px-3 border border-gray-300 focus:border-red-300 focus:outline-none focus:ring focus:ring-red-200 focus:ring-opacity-50 rounded-md shadow-sm disabled:bg-gray-100 mt-1 block w-full"/>
+        <p class="text-red-500 text-xs italic" *ngIf="!password.valid && password.touched">Please enter a valid
+          password.</p>
+        <p class="text-red-500 text-xs italic" *ngIf="password.errors?.['minlength']">Password must be at least 8
+          characters long</p>
+
+      </div>
+
+      <div class="mt-6">
+        <button [ngClass]="{'disabled-btn': !f.valid}" [disabled]="!f.valid" type="submit"
+                class="mb-2 w-full inline-flex items-center justify-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold capitalize text-white hover:bg-red-700 active:bg-red-700 focus:outline-none focus:border-red-700 focus:ring focus:ring-red-200 disabled:opacity-25 transition">
+          Create Account
+        </button>
+        <p class="text-red-500 text-m" *ngIf="usernameExists">This username/email is already in use.</p>
+      </div>
+      <div class="mt-6 text-center">
+        <a routerLink="/login" class="underline">Already a member? Log in</a>
+      </div>
+    </form>
+  </div>
+</div>
