@@ -6,7 +6,8 @@ import {ProductService} from "../../../shared/services/product.service";
 @Component({
   selector: 'app-add-product-modal',
   templateUrl: './add-product-modal.component.html',
-  styleUrls: ['./add-product-modal.component.css']
+  styleUrls: ['./add-product-modal.component.css'],
+  providers: [ProductService]
 })
 export class AddProductModalComponent {
 
